@@ -34,3 +34,11 @@ console.log("aps1.plotas", aps1.plotas());
 // sukurti 2 metodus
 // koksAutorius() -> Atorius: Tolstojus
 // kokiaKnyga() -> Knygos Pavadinimas: Karas ir taika
+
+// 4 Sukurti konstruktoriaus funkcija Skaiciuotuvas
+// priimti 3 reiksmes kaip savybes
+// sukurti metodus kurie
+// sudeda visas reiksmes ir grazina rez
+// sudeda pirmas dvi ir atima paskutine ir grazina rez
+// sudaugina visas reiksmes ir padalina is naujai argumentu paduotos reiksmes
+// pvz sk1.divideBy(13)
