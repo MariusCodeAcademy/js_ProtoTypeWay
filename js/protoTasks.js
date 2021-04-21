@@ -8,6 +8,21 @@ console.log("protoTask");
 // priskiriam metodus
 // grazinti pilnam vardui
 // grazinti emailui vardas.pavarde@kompanija.com
+function Darbuotojas(vard, pavard) {
+  this.vardas = vard;
+  this.pavarde = pavard;
+}
+Darbuotojas.prototype.fullName = function () {
+  console.log(`${this.vardas} ${this.pavarde}`);
+};
+Darbuotojas.prototype.email = function () {
+  console.log(`${this.vardas.toLowerCase()}.${this.pavarde.toLowerCase()}@kompanija.com`);
+};
+
+const d1 = new Darbuotojas("James", "Light");
+console.log("d1", d1);
+d1.fullName();
+d1.email();
 
 // sukurti keleta darbuotoju ir pasibandyti ar veikia
 
@@ -54,3 +69,10 @@ console.log("aps1.plotas", aps1.perimetras());
 // autoInfo()
 // nustatytiKaina(400)
 // padaryti didejanti Id => auto1, auto2 ir ttt
+
+// 6 skukurti AutoParduotuves klase kaip ir darem pries tai tik padaryti
+//konstruktoriaus funkcijos budu
+//Sukurkite klase AutoParduotuve
+// sukurimo metu sukurkite savybe parduodamiAutomobiliai tuscia masyva
+// ir priima pavadinma argumentu new AutoParduotuve('bestCars')
+// saskaitos funkcionalumo galime nekartoti
