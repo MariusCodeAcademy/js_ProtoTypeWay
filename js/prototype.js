@@ -8,7 +8,7 @@ let simple = {
     console.log("Hi my color is", this.color);
   },
 };
-
+simple.count = 0;
 console.log("simpleObject", simple);
 // simple.greet();
 simple.toString();
