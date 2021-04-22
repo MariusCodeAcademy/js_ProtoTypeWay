@@ -40,6 +40,17 @@ per1.email();
 // ir masyva pazymiai (sk masyvas apie 8 el ilgio)
 // metodas paskaiciuoti vidurkui
 // perrasyti personInfo kad prideti is kokio universiteto ir koks vidurkis
+function Student(name, email, birthYear, university, grades) {
+  Person.call(this, name, email, birthYear);
+  this.uni = university;
+  this.grades = grades;
+}
+Student.prototype = Object.create(Person.prototype);
+let pazymiai = [6, 8, 8, 4, 6, 10, 9];
+const st1 = new Student("Mike", "mike@tyson.com", 1965, "KTU", pazymiai);
+console.log("st1", st1);
+st1.email();
+st1.personInfo();
 
 // 4. sukurti konstruktoriaus funkcija Zinduolis praplecia LivingThing
 // pridedam savybe rusis
