@@ -83,7 +83,7 @@ u1.logIn();
 function Admin(sritis, ...args) {
   // iskviesti tevines funkcijos konstruktorius
   User.apply(this, args);
-  // User.call(this, name, email); // super(name, email)
+  //   User.call(this, name, email); // super(name, email)
   this.sritis = sritis;
 }
 // DRY - Dont repeat yourself
