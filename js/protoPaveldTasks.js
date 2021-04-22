@@ -46,18 +46,46 @@ function Student(name, email, birthYear, university, grades) {
   this.grades = grades;
 }
 Student.prototype = Object.create(Person.prototype);
+Student.prototype.avg = (function () {
+  // pasiimam pazymiu masyva ir
+  // apskaiciuojam vidurki
+  console.log("vidurkis");
+})();
 let pazymiai = [6, 8, 8, 4, 6, 10, 9];
 const st1 = new Student("Mike", "mike@tyson.com", 1965, "KTU", pazymiai);
 console.log("st1", st1);
 st1.email();
 st1.personInfo();
+st1.avg;
 
 // 4. sukurti konstruktoriaus funkcija Zinduolis praplecia LivingThing
 // pridedam savybe rusis
 // metodas info atspaudina koks amziu ir kokios rusies zinduolis
+function Zinduolis(rusis, ...args) {
+  LivingThing.apply(this, args);
+  this.rusis = rusis;
+}
+const zin1 = new Zinduolis("Katinas", 2010);
+console.log("zin1", zin1);
 
 // 5 sukurti 2 LivingThingus, 3 Zinduolius, atspausdinti zinduoliu info
 // 6 sukurti 2 Person, 4 Studentus masyve. atspausdinti personInfo Studentu ir Asmenu
 // 7 sukurtiem Studentam iskviesti Email metoda ciklo budu
 // 8 parasyti funkcija kuri pasiima studentu masyva ir grazina kiekvieno studento varda ir
 // vidurki objektu masyvo pavidalu
+// 9 sukurti gyvunus is masyvu
+let zinduoliuMasyvas1 = [
+  { kind: "katinas", yearB: 2010 },
+  { kind: "suo", yearB: 2012 },
+  { kind: "briedis", yearB: 2015 },
+  { kind: "asilas", yearB: 2011 },
+  { kind: "kengura", yearB: 2017 },
+];
+
+let zinduoliuMasyvas2 = [
+  { katinas: 2010 },
+  { suo: 2012 },
+  { briedis: 2015 },
+  { asilas: 2011 },
+  { kengure: 2017 },
+];

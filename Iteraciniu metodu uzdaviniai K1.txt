@@ -3,7 +3,7 @@
   - name
   - surname
   - age
-  - height
+  - height cm
   - weight
   - sex
 2. Panaudojant array.foreach:
