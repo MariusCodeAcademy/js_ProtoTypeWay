@@ -80,6 +80,28 @@ const u2 = new User("Mark", "Bob@gmail.com");
 console.log(u1, u2);
 u1.logIn();
 
-function Admin(name, email, role) {
+function Admin(sritis, ...args) {
   // iskviesti tevines funkcijos konstruktorius
+  User.apply(this, args);
+  // User.call(this, name, email); // super(name, email)
+  this.sritis = sritis;
 }
+// DRY - Dont repeat yourself
+// KISS - Keep it Simple Stupid
+// Object.create(blueprint) - sukuriam nauja objekta pagal argumetu gauta objekta
+Admin.prototype = Object.create(User.prototype); // extends User Metodus
+
+Admin.prototype.deleteUser = function (user) {
+  if (user instanceof User) {
+    console.log(`Vartotojas ${user.email} buvo istrintas.`);
+  } else {
+    throw new Error("Tokio userio nera");
+  }
+};
+
+const admin1 = new Admin("Network", "Admin", "admin@admin.com");
+
+admin1.logIn();
+console.log("admin1", admin1);
+admin1.deleteUser(u1);
+// u1.deleteUser(u2);
