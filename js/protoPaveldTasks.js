@@ -58,7 +58,7 @@ Student.prototype.avg = function () {
   // apskaiciuojam vidurki
   let ilgis = this.grades.length;
   let avg = this.grades.reduce((totalAvg, num) => totalAvg + num / ilgis, 0);
-  console.log("vidurkis", avg);
+
   return avg;
 };
 Student.prototype.personInfo = function () {
@@ -99,19 +99,56 @@ console.log(zin1, zin2, zin3);
 console.groupEnd();
 console.log("");
 
-console.group("6 sukurti 2 Person, 4 Studentus masyve. atspausdinti personInfo Studentu ir Asmenu");
+console.groupCollapsed(
+  "6 sukurti 2 Person, 4 Studentus masyve. atspausdinti personInfo Studentu ir Asmenu"
+);
 // 6 sukurti 2 Person, 4 Studentus masyve. atspausdinti personInfo Studentu ir Asmenu
 const studentsArr = [
+  new Person("Mikey", "mikeey@tyson.com", 1975),
   new Student("Mike", "mike@tyson.com", 1965, "KTU", [5, 7, 6]),
   new Student("James", "James@Blue.com", 1995, "VGTU", [4, 10, 10]),
   new Student("Marry", "Marry@Blue.com", 2005, "VGTU", [10, 10, 10]),
   new Student("Bob", "Bob@Stone.com", 2010, "VGTU", [7, 8, 7]),
 ];
+console.log("studentsArr", studentsArr);
+studentsArr.forEach((stdObj) => stdObj.personInfo());
+
 console.groupEnd();
 console.log("");
+
+console.groupCollapsed("7 sukurtiem Studentam iskviesti Email metoda ciklo budu");
 // 7 sukurtiem Studentam iskviesti Email metoda ciklo budu
+studentsArr.forEach((stdObj) => stdObj.email());
+console.groupEnd();
+console.log("");
+
 // 8 parasyti funkcija kuri pasiima studentu masyva ir grazina kiekvieno studento varda ir
 // vidurki objektu masyvo pavidalu
+function getStudentsAndGrades(stArr) {
+  return stArr
+    .map((studObj, index) => {
+      // praleisti pirma el ir paduoti visus kitus
+      if (!(studObj instanceof Student)) return "Not a Student";
+      let newObj = {
+        name: studObj.vardas,
+        avg: studObj.avg(),
+      };
+      return newObj;
+    })
+    .filter((newStudObj) => newStudObj !== "Not a Student");
+}
+console.group("8 parasyti funkcija kuri pasiima studentu masyva i");
+console.log("getStudentsAndGrades(studentsArr)", getStudentsAndGrades(studentsArr));
+
+console.groupEnd();
+console.log("");
+
+// [
+//   {name: 'Mike', avg: 7.60},
+//   {name: 'Mike', avg: 7.60},
+//   {name: 'Mike', avg: 7.60},
+//   {name: 'Mike', avg: 7.60},
+// ]
 // 9 sukurti gyvunus is masyvu
 let zinduoliuMasyvas1 = [
   { kind: "katinas", yearB: 2010 },
@@ -120,6 +157,12 @@ let zinduoliuMasyvas1 = [
   { kind: "asilas", yearB: 2011 },
   { kind: "kengura", yearB: 2017 },
 ];
+
+new Zinduolis("Briedis", 2000);
+let zinduoliaiFromMasyvas = zinduoliuMasyvas1.map(
+  (dataObj) => new Zinduolis(dataObj.kind, dataObj.yearB)
+);
+console.log("zinduoliaiFromMasyvas", zinduoliaiFromMasyvas);
 
 let zinduoliuMasyvas2 = [
   { katinas: 2010 },
