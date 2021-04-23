@@ -3,6 +3,13 @@
 // console.table(peopleObjs);
 console.log(peopleObjs);
 
+//helper fns
+//pagalbine kmi funkija
+function calcKmi(weight, height) {
+  let kmiLong = weight / (height / 100) ** 2;
+  return +kmiLong.toFixed(2);
+}
+
 {
   // console.log("pirmas objektas", peopleObjs[0]);
   // console.log("antras objektas", peopleObjs[1]);
@@ -19,14 +26,10 @@ console.log(peopleObjs);
     // skaiciuojam vietoj
     let kmi = personObj.weight / (personObj.height / 100) ** 2;
     // panaudojam pagalbine kmi funkija
-    kmi = caclKmi(personObj.weight, personObj.height);
+    kmi = calcKmi(personObj.weight, personObj.height);
     console.log(personObj.name, "km is:", kmi);
   });
-  //pagalbine kmi funkija
-  function caclKmi(weight, height) {
-    let kmiLong = weight / (height / 100) ** 2;
-    return +kmiLong.toFixed(2);
-  }
+
   //   console.clear();
   peopleObjs.forEach(printKmi);
 
@@ -38,38 +41,95 @@ console.log(peopleObjs);
 console.clear();
 console.group("Panaudojant array.filter atrinkti į naują masyvą ir po to atspausdinti žmones:");
 
-let filtered = peopleObjs.filter((personObj) => {
-  // gauti varda
-  let vardas = personObj.name;
-  // patikrinti ar vardas yra daugiau nei 6 simboliai
-  // explicit varijantas kai mes tiksliai ir smulkiai aprasom
-  //   if (vardas.length > 6) {
-  if (isStringMorethan6(vardas)) {
-    // jei taip grazinti true
-    return true;
+{
+  let filtered = peopleObjs.filter((personObj) => {
+    // gauti varda
+    let vardas = personObj.name;
+    // patikrinti ar vardas yra daugiau nei 6 simboliai
+    // explicit varijantas kai mes tiksliai ir smulkiai aprasom
+    //   if (vardas.length > 6) {
+    if (isStringMorethan6(vardas)) {
+      // jei taip grazinti true
+      return true;
+    }
+    //   return vardas.length > 6;
+  });
+
+  function isStringMorethan6(str) {
+    return str.length > 6;
   }
-  //   return vardas.length > 6;
-});
+  console.log('isStringMorethan6("dfdf")', isStringMorethan6("dfdf"));
 
-function isStringMorethan6(str) {
-  return str.length > 6;
+  console.log("filtered", filtered);
+
+  let over80 = peopleObjs.filter((personObj) => personObj.weight > 80);
+  console.log("over80", over80);
+
+  let skyTowwers = peopleObjs.filter((personObj) => personObj.height > 185);
+  console.log("skyTowwers", skyTowwers);
+
+  console.groupEnd();
+  console.log("");
+
+  function test(val) {
+    // bang bang
+    // jei reiksme yra uzpildyta truthy grazinam true
+    // jei falsy grazinma false
+    return !!val;
+  }
 }
-console.log('isStringMorethan6("dfdf")', isStringMorethan6("dfdf"));
+{
+  console.clear();
 
-console.log("filtered", filtered);
+  console.group("map");
+  let ugiai = peopleObjs.map((p) => p.height);
+  console.log(ugiai);
 
-let over80 = peopleObjs.filter((personObj) => personObj.weight > 80);
-console.log("over80", over80);
+  // [{height, weight, age}, ...]
+  let hwa = peopleObjs.map(({ height, weight, age }) => {
+    // let { height, weight, age } = p
+    return {
+      height,
+      weight,
+      age,
+    };
+  });
+  // one line
+  let hwaOneLine = peopleObjs.map(({ height, weight, age }) => ({ height, weight, age }));
 
-let skyTowwers = peopleObjs.filter((personObj) => {});
-console.log("skyTowwers", skyTowwers);
+  console.log("hwa", hwa);
+  console.log("hwaOneLine", hwaOneLine);
 
-console.groupEnd();
-console.log("");
+  // KMI index
+  let kmiIndex = peopleObjs.map((p) => calcKmi(p.weight, p.height));
+  console.log("kmiIndex", kmiIndex);
+  // object destruct
+  kmiIndex = peopleObjs.map(({ age: a, weight: w, height: h }) => ({ age: a, kmi: calcKmi(w, h) }));
 
-function test(val) {
-  // bang bang
-  // jei reiksme yra uzpildyta truthy grazinam true
-  // jei falsy grazinma false
-  return !!val;
+  console.log("kmiIndex amzius", kmiIndex);
+  console.groupEnd();
+  console.log("");
+}
+
+{
+  // lets reduce
+  console.table(peopleObjs);
+  console.group("Reduce");
+  // susumuoti visus amzius
+  let amziai = peopleObjs.map(({ age }) => age);
+  console.log("amziai", amziai);
+  // amziai  [7, 17, 77, 27, 37, 39, 27, 17]
+  let sum = amziai.reduce((total, sk) => total + sk, 0);
+  console.log("sum", sum);
+
+  // oneline
+  let amziuSuma = peopleObjs.map(({ age }) => age).reduce((total, sk) => total + sk, 0);
+  console.log("amziuSuma", amziuSuma);
+
+  // one line no map
+  amziuSuma = peopleObjs.reduce((total, obj) => total + obj.age, 0);
+  console.log("amziuSuma no map", amziuSuma);
+
+  console.groupEnd();
+  console.log("");
 }
