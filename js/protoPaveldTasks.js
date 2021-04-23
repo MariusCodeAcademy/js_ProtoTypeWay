@@ -171,3 +171,19 @@ let zinduoliuMasyvas2 = [
   { asilas: 2011 },
   { kengure: 2017 },
 ];
+console.clear();
+let el = zinduoliuMasyvas2[0];
+console.log(el);
+// suprantamesnis varijantas
+let zinduoliaiFromMasyvas2 = zinduoliuMasyvas2.map((dataObj) => {
+  let key = Object.keys(dataObj).toString();
+  let val = dataObj[key];
+  console.log("key", key, "val", val);
+  return new Zinduolis(key, val);
+});
+console.log("zinduoliaiFromMasyvas2", zinduoliaiFromMasyvas2);
+// vienos eilutes var
+zinduoliaiFromMasyvas2 = zinduoliuMasyvas2.map(
+  (dataObj) => new Zinduolis(Object.keys(dataObj).toString(), +Object.values(dataObj).toString())
+);
+console.log("zinduoliaiFromMasyvas2", zinduoliaiFromMasyvas2);
