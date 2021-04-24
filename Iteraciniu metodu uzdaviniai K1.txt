@@ -23,7 +23,8 @@
 5. Panaudojant array.reduce suskaičiuoti ir po to atspausdinti
   - svorių vidurkį
   - ūgio vidurkį
-
+  - visu amziu suma
+  - kiek amziu gyventu jei butu vienas zmogus 
 
 
   ----------------------------------- 2 Dalis ------------------------------------ 
