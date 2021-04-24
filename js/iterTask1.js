@@ -130,6 +130,22 @@ console.group("Panaudojant array.filter atrinkti į naują masyvą ir po to atsp
   amziuSuma = peopleObjs.reduce((total, obj) => total + obj.age, 0);
   console.log("amziuSuma no map", amziuSuma);
 
+  //svoriu vidurkis
+  // amziai  [7, 17, 77, 27, 37, 39, 27, 17] reduce vidrkis 7/8 + 17/8 + 77/8 ....
+  // let svoriuVidurkis = peopleObjs.reduce((avg, pObj) => avg + pObj.weight / peopleObjs.length, 0);
+  let svoriuSuma = peopleObjs.reduce((avg, pObj) => avg + pObj.weight, 0);
+  let svoriuVidurkis = svoriuSuma / peopleObjs.length;
+  console.log("svoriuVidurkis", svoriuVidurkis);
+
+  // kiek amziu gyventu zmogus jei tai butu vienas zmogus
+  // let kiekAmziu = amziuSuma / 100;
+  let kiekAmziu = peopleObjs.reduce((total, obj, index, arr) => {
+    // if (index === 2) return total;
+    return total + obj.age / 100;
+  }, 0);
+
+  console.log("kiekAmziu", kiekAmziu);
+
   console.groupEnd();
   console.log("");
 }
