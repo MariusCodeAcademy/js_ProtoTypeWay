@@ -3,12 +3,12 @@ kiekvienas todo turi tureti id, title, done, timeStamp
 // todo sarasa turetu buti masyvas kuriame yra objektai 
 
 // reikalingi metodai arba funkcijos 
-// prideti nauja todo,
-// istrinti todo 
-// editinti todo keiciasi timeStamp
-// padaryti todo DONE (check uncheck)
+// 1. prideti nauja todo,
+// 2. istrinti todo 
+// 3. editinti todo keiciasi timeStamp
+// 4. padaryti todo DONE (check uncheck)
 
-// picture todo 
+// 5. picture todo 
 // toks pat kaip papras todo, bet galima issaugoti paveikslelio url 
 {id, title, done, imgUrl}
 
@@ -21,10 +21,16 @@ kiekvienas todo turi tureti id, title, done, timeStamp
 ]
 
 
-// sukurti skaitliuka, kuris rodo kiek turime todo is viso ir kiek pazymetu done PVZ 4/10
+// 6. sukurti skaitliuka, kuris rodo kiek turime todo is viso ir kiek pazymetu done PVZ 4/10
 
-// sukurti buda matyti tik pabaigtus(pazymetus varnele) todo
+// 7. sukurti buda matyti tik pabaigtus(pazymetus varnele) todo
 
-// sukrti buda matyti tik todo kurie yra paveiksliuko tipo 
+// 8. sukrti buda matyti tik todo kurie yra paveiksliuko tipo 
 
-// sukrti buda matyti tik todo kurie yra paprasto tipo 
+// 9. sukrti buda matyti tik todo kurie yra paprasto tipo 
+
+// 10. sukurti ilgo teksto tipo Todo. Jis turi papildoma longText savybe
+// {id, title, done, timeStamp, longText}
+// todo toks tampa jei tekstas ilgesnis nei 80 simboliu automatiskai 
+
+
