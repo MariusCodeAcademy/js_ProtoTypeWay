@@ -27,4 +27,4 @@ kiekvienas todo turi tureti id, title, done, timeStamp
 
 // sukrti buda matyti tik todo kurie yra paveiksliuko tipo 
 
-// 
+// sukrti buda matyti tik todo kurie yra paprasto tipo 
