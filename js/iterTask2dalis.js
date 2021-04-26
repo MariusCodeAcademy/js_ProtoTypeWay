@@ -40,7 +40,7 @@ class Person {
 
 const personsArr = peopleObjs.map((perObj) => new Person(perObj));
 // let pers1 = new Person(testObj);
-// console.table(personsArr);
+console.table(personsArr);
 console.groupCollapsed(
   "0. Pasinaudojant 1 dalies elementų masyvu, sukurti Person prototipų(Class) masyvą:"
 );
@@ -73,6 +73,13 @@ console.groupEnd();
 console.log("");
 
 console.group("2. Atrinkti vyrus, kurie vyresni nei 25 metai ir KMI mažesnis nei 18,5");
+
+let atrinktiVyrai = personsArr
+  .filter((p) => p.sex === "male")
+  .filter((p) => p.age > 25)
+  .filter((p) => p.kmi < 18.5);
+console.log("atrinktiVyrai");
+console.table(atrinktiVyrai);
 
 console.groupEnd();
 console.log("");
