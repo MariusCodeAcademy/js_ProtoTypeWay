@@ -72,7 +72,7 @@ console.table(svor70);
 console.groupEnd();
 console.log("");
 
-console.group("2. Atrinkti vyrus, kurie vyresni nei 25 metai ir KMI mažesnis nei 18,5");
+console.groupCollapsed("2. Atrinkti vyrus, kurie vyresni nei 25 metai ir KMI mažesnis nei 18,5");
 
 let atrinktiVyrai = personsArr
   .filter((p) => p.sex === "male")
@@ -80,6 +80,30 @@ let atrinktiVyrai = personsArr
   .filter((p) => p.kmi < 18.5);
 console.log("atrinktiVyrai");
 console.table(atrinktiVyrai);
+
+console.groupEnd();
+console.log("");
+
+console.groupCollapsed("3. Atrinkti vaikus, su antsvoriu (KMI > 30)");
+
+let atrinkaiVaikai = personsArr.filter((p) => p.age < 18).filter((p) => p.kmi > 30);
+console.table(atrinkaiVaikai);
+
+console.groupEnd();
+console.log("");
+
+console.group("4. Atrinkti pensininkus, su antsvoriu (KMI > 30)");
+let pensai = personsArr.filter((p) => p.age > 63 && p.kmi > 30);
+console.log(pensai);
+
+console.groupEnd();
+console.log("");
+
+console.group("5. Atrinkti visus, kieno KMI nepatenka į rėžius [18.5; 25]");
+let kmiReziai = personsArr
+  .filter((p) => p.kmi < 18.5 || p.kmi > 25)
+  .map((p) => ({ name: p.name, kmi: p.kmi }));
+console.log(kmiReziai);
 
 console.groupEnd();
 console.log("");
