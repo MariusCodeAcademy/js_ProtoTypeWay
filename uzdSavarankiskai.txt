@@ -19,3 +19,12 @@ kiekvienas todo turi tureti id, title, done, timeStamp
     {id, title, done, timeStamp}
     {id, title, done, timeStamp}
 ]
+
+
+// sukurti skaitliuka, kuris rodo kiek turime todo is viso ir kiek pazymetu done PVZ 4/10
+
+// sukurti buda matyti tik pabaigtus(pazymetus varnele) todo
+
+// sukrti buda matyti tik todo kurie yra paveiksliuko tipo 
+
+// 
